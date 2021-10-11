@@ -16,7 +16,7 @@
 <script lang="ts">
 import { defineComponent, toRefs ,onMounted,onUpdated, onRenderTriggered,onUnmounted} from "vue";
 import { ref, computed ,reactive,watch} from "vue";
-import useMousePosition from './hooks/userMousePosition'
+import useMousePositionrefData from './hooks/useMousePositionrefData'
 interface DataProps {
   counter:number;
   double:number;
@@ -42,6 +42,7 @@ export default defineComponent({
     onRenderTriggered((event)=>{
       // console.log(event)
     })
+    // reactive的写法，设置为响应式的数据
     const data:DataProps = reactive({
       counter:0,
       increase:()=>{
@@ -55,10 +56,14 @@ export default defineComponent({
     data.person.name = 'shit'
     // 取出data中的值后，不再是响应式的,使用toRefs保证为响应式
     const refData = toRefs(data)
+
+
     const greetings = ref('')
     const updateGreeting = ()=>{
       greetings.value += 'Hello'
     }
+
+    // watch 
     watch([greetings,()=>data.counter],(newValue,oldValue)=>{
       document.title = greetings.value;
       console.log(`new = ${newValue},old=${oldValue}`)
@@ -78,7 +83,8 @@ export default defineComponent({
     //   document.removeEventListener('click',updateMouse)
     // })
     // 调用hooks
-    const {x,y} = useMousePosition();
+    // const {x,y} = useMousePosition();
+    const {x,y} = useMousePositionrefData();
     return {
       ...refData,
       greetings,
