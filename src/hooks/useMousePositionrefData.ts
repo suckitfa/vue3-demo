@@ -1,6 +1,6 @@
 import { toRefs,reactive,onMounted,onUnmounted } from "vue";
 // 使用reactive来定义
-function useMousePositionirefData() {
+function useMousePositionrefData() {
     const data = reactive({
         x:0,y:0,
         updateMouse:(e:MouseEvent)=>{
@@ -17,4 +17,4 @@ function useMousePositionirefData() {
     const refData = toRefs(data)
     return {...refData}
 }
-export default useMousePositionirefData;
+export default useMousePositionrefData;

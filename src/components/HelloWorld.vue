@@ -36,7 +36,15 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'HelloWorld',
   props: {
-    msg: String,
+    msg: {
+      type:String,
+      required:true
+    }
+  },
+  setup(props,context) {
+    // 无法访问this
+    props.msg
+    context.slots
   },
 });
 </script>

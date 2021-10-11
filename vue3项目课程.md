@@ -28,6 +28,7 @@ http://docs.vikingship.xyz/typescript.html#%E5%AE%89%E8%A3%85-typescript
 
 - ESLint 代码规范校验，提高代码的质量
 - Vetur
+- 提供API的站点： https://dog.ceo/dog-api/
 
 
 ### ref
@@ -88,3 +89,27 @@ new Proxy({
 
 - onRenderTracked
 - onRenderTriggered
+
+
+### hooks提取公共逻辑
+### typescript中的泛型对hooks
+### Vue3中的defineComponent对typescript的加强
+
+![image-20211011210102059](/Users/bobtang/Library/Application Support/typora-user-images/image-20211011210102059.png)
+
+
+### Teleport
+
+![image-20211011210250399](/Users/bobtang/Library/Application Support/typora-user-images/image-20211011210250399.png)
+- Dialog被包裹在其他组件之中，容易被干扰。
+- 样式也在其他组件中，容易变得非常混淆
+- ![image-20211011210514798](/Users/bobtang/Library/Application Support/typora-user-images/image-20211011210514798.png)
+
+借助teleport让modal渲染在app同一级的modal中
+
+![image-20211011211551002](/Users/bobtang/Library/Application Support/typora-user-images/image-20211011211551002.png)
+
+### emits明确显示组件的自定义事件
+
+### Suspense 支持异步组件，要返回一个promise
+- 异步请求的困境
